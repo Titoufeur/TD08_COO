@@ -1,3 +1,5 @@
+import thermos.Thermostat;
+
 import java.util.Scanner;
 
 /**
@@ -27,6 +29,9 @@ public class Main {
 		ChemineeAdapter ca = new ChemineeAdapter(c);
 		t.ajouterAppareil(h);
 		t.ajouterAppareil(ca);
+		Thermostat th = new Thermostat();
+		Adapter ad = new Adapter(th);
+		t.ajouterAppareil(ad);
 		TelecommandeGraphique tg = new TelecommandeGraphique(t);
 	}
 

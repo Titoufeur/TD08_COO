@@ -1,0 +1,72 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+'''classes
+class Hifi {
+int son
+allumer()
+éteindre()
+String toString()
+}
+
+class Lampe{
+boolean allumé
+Lampe(String paramNom)
+allume()
+eteindre()
+String toString()
+boolean isAllume();
+}
+
+class Telecommande{
+ArrayList<Lampe> lampes
+Telecommande()
+ajouterLampe(Lampe lampe)
+activerAppareil(int numero)
+desactiverLampe(int numero)
+String toString()
+void activerTout()
+Lampe getLampe(int numero)
+}
+
+class Television{
+}
+
+class Thermostat{
++Thermostat()
++monterTemp()
++baisserTemp()
+}
+
+class Adapter{
+allumer()
+eteindre()
+}
+
+
+interface Appareil{
+
+}
+
+class ChemineeAdapter{
+allumer()
+eteindre()
+}
+
+class Cheminee{
+changerIntensite()
+GetLumiere()
+}
+
+'''relations
+Appareil <|.. ChemineeAdapter
+Appareil<|.. Television
+Appareil<|.. Hifi
+Appareil<|.. Lampe
+Appareil<|..Adapter
+Telecommande"0..1" -> "*" Appareil : - -appareils
+ChemineeAdapter "1" -> "1" Cheminee : -cheminee
+Adapter "1" -> "1" Thermostat : -thermostat
+
+
+@enduml
